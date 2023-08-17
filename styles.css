@@ -1,0 +1,122 @@
+*
+{
+    font-family: 'Nova Flat', 'Allerta Stencil';
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red; */
+}
+
+.page 
+{
+    display: flex;
+    flex-direction: column;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.header
+{
+    font-size: 48px; 
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex: 1 1 0;
+    flex-wrap: wrap;
+}
+
+.footer
+{
+    font-size: 22px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex: 1 1 0;
+    flex-wrap: wrap;
+}
+
+.body
+{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 150px 100px;
+    background-color: #696969;
+}
+
+.center
+{
+    color: black;
+    background-color: #696969;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex: 1 1 0;
+}
+
+.start-resultWinLose,
+.rules-resultInfo
+{
+    font-size: 28px;
+    font-weight: 600;
+}
+
+a
+{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.roundChoiceAndScore
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+    padding: 20px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.player,
+.computer
+{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.player .playerScore,
+.computer .computerScore
+{
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.playerChoice,
+.computerChoice
+{
+    font-size: 84px;
+}
+
+.choices
+{
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.choices button
+{
+    border-radius: 12px;
+    padding: 50px;
+    background-color: #ffffff;
+    font-size: 64px;
+}

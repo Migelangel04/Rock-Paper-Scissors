@@ -1,3 +1,23 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function getComputerChoice()
 {
    let choice = Math.floor(Math.random() * 3) + 1; 
@@ -70,11 +90,10 @@ function playAround(playerChoice, computerChoice)
 
 function game()
 {
-    console.log("This game is the best to 3");
     let userCounter = 0;
     let computerCounter = 0;
 
-    while(userCounter < 3 && computerCounter < 3)
+    while(userCounter < 5 && computerCounter < 5)
     {
         let computerChoice = getComputerChoice();
         let playerChoice = prompt("What is your choice?");
