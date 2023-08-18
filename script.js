@@ -1,21 +1,7 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+window.addEventListener('click', function(e) {
+let playerInitialInput = e.target.getAttribute('class');
+game(playerInitialInput);
+})
 
 
 function getComputerChoice()
@@ -36,21 +22,22 @@ function getComputerChoice()
    }
 }
 
-function playAround(playerChoice, computerChoice)
+
+function playRound(playerChoice, computerChoice)
 {
     if (playerChoice === "rock")
     {
         if (computerChoice === "rock")
         {
-            return "Tied Game! Go again.";
+            return "Fate has been delayed!";
         }
         else if (computerChoice === "paper")
         {
-            return "You Lose! Paper beats Rock.";
+            return "Paper has wrapped Rock.";
         }
         else 
         {
-            return "You Win! Congrats";
+            return "Rock has crushed Scissors!";
         }
     }
 
@@ -58,15 +45,15 @@ function playAround(playerChoice, computerChoice)
     {
         if (computerChoice === "paper")
         {
-            return "Tied Game! Go again.";
+            return "That was tense!";
         }
         else if (computerChoice === "scissors")
         {
-            return "You Lose! Scissors beats Paper.";
+            return "Scissors has sliced Paper!";
         }
         else 
         {
-            return "You Win! Congrats";
+            return "Paper has enveloped Rock!";
         }
     }
 
@@ -74,53 +61,304 @@ function playAround(playerChoice, computerChoice)
     {
         if (computerChoice === "scissors")
         {
-            return "Tied Game! Go again.";
+            return "A stand still!";
         }
         else if (computerChoice === "rock")
         {
-            return "You Lose! Rock beats Scissors.";
+            return "Rock demolished Scissors!";
         }
         else 
         {
-            return "You Win! Congrats";
+            return "Scissors has sliced Paper!";
         }
     }
 
 }
 
-function game()
+
+function game(playerInitialInput)
 {
-    let userCounter = 0;
+    let playerCounter = 0;
     let computerCounter = 0;
 
-    while(userCounter < 5 && computerCounter < 5)
+    while(playerCounter < 5 && computerCounter < 5)
     {
-        let computerChoice = getComputerChoice();
-        let playerChoice = prompt("What is your choice?");
-        let resultOfRound = playAround(playerChoice.toLowerCase(), computerChoice);
+        if(playerCounter === 0 && computerCounter === 0)
+        {
+            let computerChoice = getComputerChoice();
+            let playerChoice = playerInitialInput;
+            let resultOfRound = playRound(playerChoice, computerChoice);
+    
+            if (resultOfRound.includes("Lose"))
+            {
+                computerCounter++;
+                document.querySelector('.start-resultWinLose').innerText = "You Lose the round :(";
+                document.querySelector('.rules-resultInfo').innerText = resultOfRound;
 
-        if (resultOfRound.includes("Lose"))
-        {
-            computerCounter++;
-            console.log(resultOfRound);
+                document.querySelector('.playerScore').innerText = "Player Score: " + playerCounter;
+                document.querySelector('.computerScore').innerText = "Computer Score: " + computerCounter;
+
+                if (computerChoice === "rock" || playerChoice === "rock")
+                {
+                    if (computerChoice === "rock")
+                    {
+                        document.querySelector(".computerChoice").innerText = String.fromCodePoint(0x1FAA8);
+                    }
+                    if (playerChoice === "rock")
+                    {
+                        document.querySelector(".playerChoice").innerText = String.fromCodePoint(0x1FAA8);
+                    }
+                }
+                if (computerChoice === "paper" || playerChoice === "paper")
+                {
+                    if (computerChoice === "paper")
+                    {
+                        document.querySelector(".computerChoice").innerText = String.fromCodePoint(0x1F4F0);
+                    }
+                    if (playerChoice === "paper")
+                    {
+                        document.querySelector(".playerChoice").innerText = String.fromCodePoint(0x1F4F0);
+                    }
+                }
+                if (computerChoice === "scissors" || playerChoice === "scissors")
+                {
+                    if (computerChoice === "scissors")
+                    {
+                        document.querySelector(".computerChoice").innerText = String.fromCodePoint(0x2702);
+                    }
+                    if (playerChoice === "scissors")
+                    {
+                        document.querySelector(".playerChoice").innerText = String.fromCodePoint(0x2702);
+                    }
+                }
+            }
+            else if (resultOfRound.includes("Win"))
+            {
+                playerCounter++;
+                document.querySelector('.start-resultWinLose').innerText = "You Win the round :)";
+                document.querySelector('.rules-resultInfo').innerText = resultOfRound;
+
+                document.querySelector('.playerScore').innerText = "Player Score: " + playerCounter;
+                document.querySelector('.computerScore').innerText = "Computer Score: " + computerCounter;
+
+                if (computerChoice === "rock" || playerChoice === "rock")
+                {
+                    if (computerChoice === "rock")
+                    {
+                        document.querySelector(".computerChoice").innerText = String.fromCodePoint(0x1FAA8);
+                    }
+                    if (playerChoice === "rock")
+                    {
+                        document.querySelector(".playerChoice").innerText = String.fromCodePoint(0x1FAA8);
+                    }
+                }
+                if (computerChoice === "paper" || playerChoice === "paper")
+                {
+                    if (computerChoice === "paper")
+                    {
+                        document.querySelector(".computerChoice").innerText = String.fromCodePoint(0x1F4F0);
+                    }
+                    if (playerChoice === "paper")
+                    {
+                        document.querySelector(".playerChoice").innerText = String.fromCodePoint(0x1F4F0);
+                    }
+                }
+                if (computerChoice === "scissors" || playerChoice === "scissors")
+                {
+                    if (computerChoice === "scissors")
+                    {
+                        document.querySelector(".computerChoice").innerText = String.fromCodePoint(0x2702);
+                    }
+                    if (playerChoice === "scissors")
+                    {
+                        document.querySelector(".playerChoice").innerText = String.fromCodePoint(0x2702);
+                    }
+                }
+            }
+            else 
+            {
+                document.querySelector('.start-resultWinLose').innerText = "The round is a tie. Go again";
+                document.querySelector('.rules-resultInfo').innerText = resultOfRound;
+
+                document.querySelector('.playerScore').innerText = "Player Score: " + playerCounter;
+                document.querySelector('.computerScore').innerText = "Computer Score: " + computerCounter;
+
+                if (computerChoice === "rock" || playerChoice === "rock")
+                {
+                    if (computerChoice === "rock")
+                    {
+                        document.querySelector(".computerChoice").innerText = String.fromCodePoint(0x1FAA8);
+                    }
+                    if (playerChoice === "rock")
+                    {
+                        document.querySelector(".playerChoice").innerText = String.fromCodePoint(0x1FAA8);
+                    }
+                }
+                if (computerChoice === "paper" || playerChoice === "paper")
+                {
+                    if (computerChoice === "paper")
+                    {
+                        document.querySelector(".computerChoice").innerText = String.fromCodePoint(0x1F4F0);
+                    }
+                    if (playerChoice === "paper")
+                    {
+                        document.querySelector(".playerChoice").innerText = String.fromCodePoint(0x1F4F0);
+                    }
+                }
+                if (computerChoice === "scissors" || playerChoice === "scissors")
+                {
+                    if (computerChoice === "scissors")
+                    {
+                        document.querySelector(".computerChoice").innerText = String.fromCodePoint(0x2702);
+                    }
+                    if (playerChoice === "scissors")
+                    {
+                        document.querySelector(".playerChoice").innerText = String.fromCodePoint(0x2702);
+                    }
+                }
+            }
         }
-        else if (resultOfRound.includes("Win"))
-        {
-            userCounter++;
-            console.log(resultOfRound);
-        }
+
         else 
         {
-            console.log(resultOfRound);
-        }
+            window.addEventListener('click', function(e)
+            {
+                let computerChoice = getComputerChoice();
+                let playerChoice = e.target.getAttribute('class');
+                let resultOfRound = playRound(playerChoice, computerChoice);
+        
+                if (resultOfRound.includes("Lose"))
+                {
+                    computerCounter++;
+                    document.querySelector('.start-resultWinLose').innerText = "You Lose the round :(";
+                    document.querySelector('.rules-resultInfo').innerText = resultOfRound;
+
+                    document.querySelector('.playerScore').innerText = "Player Score: " + playerCounter;
+                    document.querySelector('.computerScore').innerText = "Computer Score: " + computerCounter;
+
+                    if (computerChoice === "rock" || playerChoice === "rock")
+                    {
+                        if (computerChoice === "rock")
+                        {
+                            document.querySelector(".computerChoice").innerText = String.fromCodePoint(0x1FAA8);
+                        }
+                        if (playerChoice === "rock")
+                        {
+                            document.querySelector(".playerChoice").innerText = String.fromCodePoint(0x1FAA8);
+                        }
+                    }
+                    if (computerChoice === "paper" || playerChoice === "paper")
+                    {
+                        if (computerChoice === "paper")
+                        {
+                            document.querySelector(".computerChoice").innerText = String.fromCodePoint(0x1F4F0);
+                        }
+                        if (playerChoice === "paper")
+                        {
+                            document.querySelector(".playerChoice").innerText = String.fromCodePoint(0x1F4F0);
+                        }
+                    }
+                    if (computerChoice === "scissors" || playerChoice === "scissors")
+                    {
+                        if (computerChoice === "scissors")
+                        {
+                            document.querySelector(".computerChoice").innerText = String.fromCodePoint(0x2702);
+                        }
+                        if (playerChoice === "scissors")
+                        {
+                            document.querySelector(".playerChoice").innerText = String.fromCodePoint(0x2702);
+                        }
+                    }
+                }
+                else if (resultOfRound.includes("Win"))
+                {
+                    playerCounter++;
+                    document.querySelector('.start-resultWinLose').innerText = "You Win the round :)";
+                    document.querySelector('.rules-resultInfo').innerText = resultOfRound;
+
+                    document.querySelector('.playerScore').innerText = "Player Score: " + playerCounter;
+                    document.querySelector('.computerScore').innerText = "Computer Score: " + computerCounter;
+
+                    if (computerChoice === "rock" || playerChoice === "rock")
+                    {
+                        if (computerChoice === "rock")
+                        {
+                            document.querySelector(".computerChoice").innerText = String.fromCodePoint(0x1FAA8);
+                        }
+                        if (playerChoice === "rock")
+                        {
+                            document.querySelector(".playerChoice").innerText = String.fromCodePoint(0x1FAA8);
+                        }
+                    }
+                    if (computerChoice === "paper" || playerChoice === "paper")
+                    {
+                        if (computerChoice === "paper")
+                        {
+                            document.querySelector(".computerChoice").innerText = String.fromCodePoint(0x1F4F0);
+                        }
+                        if (playerChoice === "paper")
+                        {
+                            document.querySelector(".playerChoice").innerText = String.fromCodePoint(0x1F4F0);
+                        }
+                    }
+                    if (computerChoice === "scissors" || playerChoice === "scissors")
+                    {
+                        if (computerChoice === "scissors")
+                        {
+                            document.querySelector(".computerChoice").innerText = String.fromCodePoint(0x2702);
+                        }
+                        if (playerChoice === "scissors")
+                        {
+                            document.querySelector(".playerChoice").innerText = String.fromCodePoint(0x2702);
+                        }
+                    }
+                }
+                else 
+                {
+                    document.querySelector('.start-resultWinLose').innerText = "The round is a tie. Go again";
+                    document.querySelector('.rules-resultInfo').innerText = resultOfRound;
+
+                    document.querySelector('.playerScore').innerText = "Player Score: " + playerCounter;
+                    document.querySelector('.computerScore').innerText = "Computer Score: " + computerCounter;
+
+                    if (computerChoice === "rock" || playerChoice === "rock")
+                    {
+                        if (computerChoice === "rock")
+                        {
+                            document.querySelector(".computerChoice").innerText = String.fromCodePoint(0x1FAA8);
+                        }
+                        if (playerChoice === "rock")
+                        {
+                            document.querySelector(".playerChoice").innerText = String.fromCodePoint(0x1FAA8);
+                        }
+                    }
+                    if (computerChoice === "paper" || playerChoice === "paper")
+                    {
+                        if (computerChoice === "paper")
+                        {
+                            document.querySelector(".computerChoice").innerText = String.fromCodePoint(0x1F4F0);
+                        }
+                        if (playerChoice === "paper")
+                        {
+                            document.querySelector(".playerChoice").innerText = String.fromCodePoint(0x1F4F0);
+                        }
+                    }
+                    if (computerChoice === "scissors" || playerChoice === "scissors")
+                    {
+                        if (computerChoice === "scissors")
+                        {
+                            document.querySelector(".computerChoice").innerText = String.fromCodePoint(0x2702);
+                        }
+                        if (playerChoice === "scissors")
+                        {
+                            document.querySelector(".playerChoice").innerText = String.fromCodePoint(0x2702);
+                        }
+                    }
+                }
+            })
+        } 
     }
 
-    if (userCounter > computerCounter)
-    {
-        console.log("You have won the game! Score: " + userCounter + "-" + computerCounter);
-    }
-    else
-    {
-        console.log("You have loss :(. Score: " + computerCounter + "-" + userCounter);
-    }
+    
+
 }
