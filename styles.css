@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     background-color: #000000;
-    color: #ffffff;
+    color: #3500D3;
 }
 
 .header
@@ -44,13 +44,13 @@
     justify-content: center;
     align-items: center;
     padding: 150px 100px;
-    background-color: #696969;
+    background-color: #0C0032;
 }
 
 .center
 {
-    color: black;
-    background-color: #696969;
+    color: #3500D3;
+    background-color: #0C0032;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,7 +69,7 @@
 a
 {
     text-decoration: none;
-    color: #ffffff;
+    color: #3500D3;
 }
 
 .roundChoiceAndScore
@@ -117,6 +117,61 @@ a
 {
     border-radius: 12px;
     padding: 50px;
-    background-color: #ffffff;
+    background-color: #240090;
     font-size: 64px;
+    border: 2px solid #240090;
 }
+
+#overlay 
+{
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+  }
+
+  .endGame
+  {
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    background-color: #190061;
+    padding: 60px;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .endgameMessage
+  {
+    font-size: 48px;
+    font-weight: bold;
+  }
+  
+  .restart
+  {
+    font-size: 36px;
+    font-weight: bold;
+    border-radius: 12px;
+    padding: 20px;
+    background-color: #000000;
+    border: 2px solid #000000;
+    color: #240090;
+  }
+
+  #overlay.overlayActive
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
